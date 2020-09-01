@@ -1,0 +1,28 @@
+---
+- hosts: dns
+  vars:
+    zone_file: kappa.zone
+    zone_file1: zone.kappa
+
+  tasks:
+
+    - name: Install BIND
+      yum: name={{ item }} state=installed
+      with_items:
+        - bind
+        - bind-utils
+
+    - name: Copy named.conf
+      template: src=named.conf.j2 dest=/etc/named.conf
+
+    - name: Copy ZONE file
+      template: src={{ zone_file }}.j2 dest=/var/named/{{ zone_file }}
+
+    - name: Copy ZONE file1
+      template: src={{ zone_file1 }}.j2 dest=/var/named/{{ zone_file1 }}
+
+
+    - name: Start and enable BIND
+      systemd: name=named state=started enabled=yes
+
+

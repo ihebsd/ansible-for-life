@@ -1,0 +1,19 @@
+$TTL 86400
+@   IN  SOA     hsine.chadly.local. root.hsine.chadly. (
+        2011071001  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+@       IN  NS          masterdns.hsine.chadly.
+@       IN  PTR         hsine.chadly.
+masterdns       IN  A   192.168.230.164
+client          IN  A   192.168.230.159
+client          IN  A   192.168.230.158
+101     IN  PTR         masterdns.hsine.chadly
+102     IN  PTR         client.hsine.chadly.
+103     IN  PTR         client.hsine.chadly.
+
+
+
