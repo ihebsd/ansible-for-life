@@ -18,12 +18,6 @@
 
 - **Setting the Ansible VM**
 
-> Ensure that the CentOS 7 EPEL repository is installed, and install Ansible.
-
-```shell
-$ yum install epel-release
-$ yum install ansible
-```
 > Setup SSH Communications
 
 ```shell
